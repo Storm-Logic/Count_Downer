@@ -1,13 +1,13 @@
 /* Imports */
 
 /* CSS */
-import '/public/css/create.scss';
-import '/public/css/dark.scss';
+import "/public/css/create.scss";
+import "/public/css/dark.scss";
 
 /* JS */
-import datepicker from 'js-datepicker';
-import 'magic-snowflakes';
-import confetti from 'canvas-confetti';
+import datepicker from "js-datepicker";
+import "magic-snowflakes";
+import confetti from "canvas-confetti";
 
 const checkbox = document.querySelector("#confetti");
 
@@ -20,16 +20,13 @@ if (month === 11) {
         maxSize: 20,
         speed: 1.5,
         wind: false,
-        maxOpacity: 0.3
-
+        maxOpacity: 0.3,
     });
 }
 
 datepicker(".datepicker", {
     minDate: new Date()
 });
-
-const patt = /^(?:(?:(?:0?[13578]|1[02])(\/|-|\.)31)\1|(?:(?:0?[1,3-9]|1[0-2])(\/|-|\.)(?:29|30)\2))(?:(?:1[6-9]|[2-9]\d)?\d{2})$|^(?:0?2(\/|-|\.)29\3(?:(?:(?:1[6-9]|[2-9]\d)?(?:0[48]|[2468][048]|[13579][26])|(?:(?:16|[2468][048]|[3579][26])00))))$|^(?:(?:0?[1-9])|(?:1[0-2]))(\/|-|\.)(?:0?[1-9]|1\d|2[0-8])\4(?:(?:1[6-9]|[2-9]\d)?\d{2})$/g
 
 function outPutInputs() {
     const cntdDate = new Date(document.getElementById("date").value);
@@ -52,7 +49,7 @@ function outPutInputs() {
     */
 }
 
-checkbox.addEventListener('change', () => {
+checkbox.addEventListener("change", () => {
     if (checkbox.checked) {
         const count = 100;
         const defaults = {
