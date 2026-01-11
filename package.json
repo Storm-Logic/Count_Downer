@@ -11,6 +11,7 @@
   },
   "dependencies": {
     "@headlessui/react": "^1.4.0",
+    "framer-motion": "^4.1.17",
     "i18next": "^20.4.0",
     "ics": "^2.31.0",
     "js-base64": "^3.6.1",
@@ -31,7 +32,7 @@
     "@types/jest": "^27.0.1",
     "@types/lodash.sum": "^4.0.6",
     "@types/node-fetch": "^2.5.12",
-    "@types/react": "17.0.18",
+    "@types/react": "17.0.19",
     "@types/react-datepicker": "^4.1.4",
     "@types/unidecode": "^0.1.1",
     "@vercel/node": "^1.12.1",
