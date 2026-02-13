@@ -15,7 +15,7 @@
     "framer-motion": "^4.1.17",
     "i18next": "^21.0.1",
     "ics": "^2.31.0",
-    "js-base64": "^3.7.1",
+    "js-base64": "^3.7.2",
     "lodash.sum": "^4.0.2",
     "next": "11.1.2",
     "node-fetch": "2.6.2",
@@ -26,7 +26,7 @@
     "react-i18next": "^11.12.0",
     "react-icons": "^4.2.0",
     "react-qr-code": "^2.0.2",
-    "sass": "^1.42.0",
+    "sass": "^1.42.1",
     "unidecode": "^0.1.8"
   },
   "devDependencies": {
