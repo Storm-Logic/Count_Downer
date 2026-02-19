@@ -33,8 +33,11 @@ const TimeRemaining = dynamic(() => import("@components/TimeRemaining"), {
   loading: () => <p>...</p>,
 });
 
-export default function Home(): JSX.Element {
-  //const { t } = useTranslation();
+export default function Home(props: {
+  name: string | undefined;
+  date: string | undefined;
+}): JSX.Element {
+  const { t } = useTranslation();
 
   const [defaultName, defaultDate] = getNextDefaultEvent(new Date());
 
@@ -46,7 +49,7 @@ export default function Home(): JSX.Element {
   const [offset, setOffset] = useState(0);
 
   const [shortTime, setShortTime] = useState("");
-  const pageTitle = `${shortTime} until ${eventName}`;
+  const pageTitle = `${shortTime} ${t("until")} ${eventName}`;
 
   const { query }: any = useRouter();
 
@@ -102,7 +105,14 @@ export default function Home(): JSX.Element {
     <>
       <div className="flex flex-col items-center justify-between min-h-screen">
         <Menu />
-        <Head titlePrefix={pageTitle} />
+        <Head
+          titlePrefix={pageTitle}
+          name={props.name && decodeURIComponent(props.name)}
+          date={
+            props.date &&
+            dayjs(parseInt(props.date) * 1000).format("MM/DD/YYYY")
+          }
+        />
 
         <motion.main
           className="text-center shadow-custom p-6 rounded-2xl bg-white dark:bg-[#262A2B] text-black dark:text-white"
@@ -127,4 +137,9 @@ export default function Home(): JSX.Element {
       </div>
     </>
   );
+}
+
+// Render the metatags for the page
+export async function getServerSideProps({ query }: { query: any }) {
+  return { props: query };
 }
