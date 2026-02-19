@@ -1,12 +1,21 @@
-import React, { useState } from "react";
-import DatePicker from "react-datepicker";
-import { useTranslation } from "react-i18next";
+import React, { useState } from 'react';
+import DatePicker from 'react-datepicker';
+import { useTranslation } from 'react-i18next';
 
+/**
+ * The component in which the user can change the date, time and name of the event.
+ * @param props -
+ * @param props.eventName - the name of the event to count down to.
+ * @param props.setName - the React setState for `props.eventName`.
+ * @param props.date - the date of the event to count down to.
+ * @param props.setDate - the React setState for `props.date`.
+ * @returns a component with the event's name and a date time picker.
+ */
 const EventName = (props: {
-  eventName: any;
-  setName: any;
-  date: any;
-  setDate: any;
+  eventName: string;
+  setName: React.Dispatch<React.SetStateAction<string>>;
+  date: Date;
+  setDate: React.Dispatch<React.SetStateAction<Date>>;
 }): JSX.Element => {
   const { t, i18n } = useTranslation();
 
@@ -25,7 +34,7 @@ const EventName = (props: {
             setEditingTitle(false);
           }}
           onKeyUp={(e) => {
-            if (e.key === "Enter") {
+            if (e.key === 'Enter') {
               setEditingTitle(false);
             }
           }}
@@ -46,7 +55,7 @@ const EventName = (props: {
         </div>
       )}
       <div className="text-3xl flex justify-center items-center flex-wrap">
-        <span>{t("Counting down to")}</span>
+        <span>{t('Counting down to')}</span>
         <DatePicker
           className="bg-white dark:bg-[#262A2B] text-black dark:text-white border-2 border-gray-200 dark:border-gray-600 rounded-xl p-2"
           dateFormat="dd/MM/yyyy"

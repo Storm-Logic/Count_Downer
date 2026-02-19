@@ -1,34 +1,30 @@
-import dayjs from "dayjs";
-import { useRouter } from "next/router";
-import dynamic from "next/dynamic";
-import React, { useState, useEffect } from "react";
-import _toast, { toast, Toaster } from "react-hot-toast";
-
-import formatSeconds from "@utils/formatSeconds";
-import timeSync from "@utils/timeSync";
-import getFormattedDiffs from "@utils/dateManipulation";
-import getNextDefaultEvent from "@utils/getNextDefaultEvent";
-
-import Head from "@components/Head";
-import Menu from "@components/Menu";
-import Footer from "@components/Footer";
-
 // Datepicker
-import "react-datepicker/dist/react-datepicker.css";
+import 'react-datepicker/dist/react-datepicker.css';
 
-import { useTranslation } from "react-i18next";
-import { motion } from "framer-motion";
-
+import Footer from '@components/Footer';
+import Head from '@components/Head';
+import Menu from '@components/Menu';
+import getFormattedDiffs from '@utils/dateManipulation';
+import formatTime from '@utils/formatTime';
+import getNextDefaultEvent from '@utils/getNextDefaultEvent';
+import timeSync from '@utils/timeSync';
+import dayjs from 'dayjs';
 // Day.js customizations
-import relativeTime from "dayjs/plugin/relativeTime";
+import relativeTime from 'dayjs/plugin/relativeTime';
+import { motion } from 'framer-motion';
+import dynamic from 'next/dynamic';
+import { useRouter } from 'next/router';
+import React, { useEffect, useState } from 'react';
+import { toast, Toaster } from 'react-hot-toast';
+import { useTranslation } from 'react-i18next';
 dayjs.extend(relativeTime);
 
-const EventName = dynamic(() => import("@components/EventName"), {
+const EventName = dynamic(() => import('@components/EventName'), {
   ssr: false,
   loading: () => <p>Loading...</p>,
 });
 
-const TimeRemaining = dynamic(() => import("@components/TimeRemaining"), {
+const TimeRemaining = dynamic(() => import('@components/TimeRemaining'), {
   ssr: false,
   loading: () => <p>...</p>,
 });
@@ -45,11 +41,13 @@ export default function Home(props: {
   const [eventName, setName] = useState<string>(defaultName);
 
   const parsedDate = dayjs(date);
-  const [today, setToday] = useState(dayjs());
-  const [offset, setOffset] = useState(0);
+  const [today, setToday] = useState<dayjs.Dayjs>(dayjs());
+  const [offset, setOffset] = useState<number>(0);
 
-  const [shortTime, setShortTime] = useState("");
-  const pageTitle = `${shortTime} ${t("until")} ${eventName}`;
+  const [shortTime, setShortTime] = useState<string>('');
+  const pageTitle = parsedDate.isAfter(today)
+    ? `${shortTime} ${t('until')} ${eventName}`
+    : undefined;
 
   const { query }: any = useRouter();
 
@@ -60,9 +58,9 @@ export default function Home(props: {
       const secondsOffset = Math.abs(diff / 1000);
       if (Math.abs(diff) > 1000) {
         toast.success(
-          `${diff > 0 ? "Added" : "Removed"} ${formatSeconds(secondsOffset)} ${
-            diff > 0 ? "to" : "from"
-          } the time`
+          `${diff > 0 ? 'Added' : 'Removed'} ${formatTime(secondsOffset)} ${
+            diff > 0 ? 'to' : 'from'
+          } the time`,
         );
         setOffset(diff);
       }
@@ -74,14 +72,16 @@ export default function Home(props: {
     if (parsedDate.isAfter(today)) {
       const countDown = setInterval(() => {
         setToday(dayjs());
-        setShortTime(getFormattedDiffs(today, parsedDate, true));
+        setShortTime(
+          getFormattedDiffs(today.add(offset, 'milisecond'), parsedDate, true),
+        );
       }, 250);
 
       return () => {
         clearInterval(countDown);
       };
     }
-  }, [parsedDate, today]);
+  }, [parsedDate, today, offset]);
 
   useEffect(() => {
     if (query.name && query.date) {
@@ -93,12 +93,12 @@ export default function Home(props: {
   const addQueryParam = (key: string, value: string) => {
     const url = new URL(window.location.href);
     url.searchParams.set(key, value);
-    window.history.pushState({}, "", url.toString());
+    window.history.pushState({}, '', url.toString());
   };
 
   useEffect(() => {
-    addQueryParam("date", (date.getTime() / 1000).toString());
-    addQueryParam("name", encodeURIComponent(eventName));
+    addQueryParam('date', (date.getTime() / 1000).toString());
+    addQueryParam('name', encodeURIComponent(eventName));
   }, [date, eventName]);
 
   return (
@@ -110,12 +110,12 @@ export default function Home(props: {
           name={props.name && decodeURIComponent(props.name)}
           date={
             props.date &&
-            dayjs(parseInt(props.date) * 1000).format("MM/DD/YYYY")
+            dayjs(parseInt(props.date) * 1000).format('MM/DD/YYYY')
           }
         />
 
         <motion.main
-          className="text-center shadow-custom p-6 rounded-2xl bg-white dark:bg-[#262A2B] text-black dark:text-white"
+          className="text-center shadow-custom rounded-2xl bg-white dark:bg-[#262A2B] text-black dark:text-white"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
         >
