@@ -1151,10 +1151,10 @@
     ts-node "8.9.1"
     typescript "4.3.4"
 
-"@vvo/tzdb@^6.27.0":
-  version "6.27.0"
-  resolved "https://registry.yarnpkg.com/@vvo/tzdb/-/tzdb-6.27.0.tgz#5befc2b0effb1dc53398ac77b437f77bb0c780e7"
-  integrity sha512-5vLYd/vxXcMNweVrF8gHJjElHSmDf0pwrToPVgk6AzpXB7+tUaafNiCqyv/GX5betBrJwFV+XdJ8yd42Bdq1Qg==
+"@vvo/tzdb@^6.28.0":
+  version "6.28.0"
+  resolved "https://registry.yarnpkg.com/@vvo/tzdb/-/tzdb-6.28.0.tgz#562a35ce343c3d547575fd3cbac29e3f642347a0"
+  integrity sha512-nRApJUfYIjng1dxGdHekGY7wGtOcTSBze4zijnSIc9YYuD2r0jnlFMmyMLbh8BHSEW6j0PGVg+LR/rRjQOivGw==
 
 abab@^2.0.3, abab@^2.0.5:
   version "2.0.5"
@@ -3118,10 +3118,10 @@ human-signals@^2.1.0:
   resolved "https://registry.yarnpkg.com/human-signals/-/human-signals-2.1.0.tgz#dc91fcba42e4d06e4abaed33b3e7a3c02f514ea0"
   integrity sha512-B4FFZ6q/T2jhhksgkbEW3HBvWIfDW85snkQgawt07S7J5QXTk6BkNV+0yAeZrM5QpMAdYlocGoljn0sJ/WQkFw==
 
-i18next@^21.2.4:
-  version "21.2.4"
-  resolved "https://registry.yarnpkg.com/i18next/-/i18next-21.2.4.tgz#ac56044099c83a0a8e2c596acf57f35da8ca327e"
-  integrity sha512-+81XmiwJOLWJFjRZJK5ASFahAo5TXZGz5IrBT4CfLJ3CyXho61A1cj1Kmh8za8TYtGFou0cEkUSjEaqfya7Wfg==
+i18next@^21.2.6:
+  version "21.2.6"
+  resolved "https://registry.yarnpkg.com/i18next/-/i18next-21.2.6.tgz#a551fcba5f5e0b36a19801c0296265940889120f"
+  integrity sha512-xnCodgPo1ASLfdPs2/GS8jQFqQsaWrQKdsqfYgf5juANavIos4kjahgBkrMU8SUCn2kv7TSssfnyVu5LZjBWXw==
   dependencies:
     "@babel/runtime" "^7.12.0"
 
