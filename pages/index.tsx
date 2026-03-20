@@ -53,7 +53,7 @@ export default function Home(props: {
 
   // Sync the date
   useEffect(() => {
-    const sync = async () => {
+    const sync = async (): Promise<void> => {
       const diff = await timeSync();
       const secondsOffset = Math.abs(diff / 1000);
       if (Math.abs(diff) > 1000) {
@@ -70,9 +70,7 @@ export default function Home(props: {
 
   useEffect(() => {
     if (parsedDate.isAfter(today.add(offset, 'milisecond'))) {
-      console.log('Creating interval');
       const countDown = setInterval(() => {
-        console.log('Executing interval');
         setToday(dayjs());
         setShortTime(
           getFormattedDiffs(today.add(offset, 'milisecond'), parsedDate, true),
@@ -84,7 +82,6 @@ export default function Home(props: {
       };
     } else {
       const countDown = setInterval(() => {
-        console.log('Executing slow interval');
         setToday(dayjs());
         setShortTime(null);
       }, 30 * 1000);

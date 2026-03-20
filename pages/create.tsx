@@ -57,7 +57,7 @@ export default function Create(props: { baseURL: string }): JSX.Element {
     return data.slug;
   };
 
-  const downloadIcal = async () => {
+  const downloadIcal = async (): Promise<void> => {
     const createEvent = (await import('ics')).createEvent;
 
     createEvent(
@@ -70,7 +70,7 @@ export default function Create(props: { baseURL: string }): JSX.Element {
       },
       async (error, value) => {
         if (error) {
-          console.log(error);
+          toast.error(`Error creating event: ${error.message}`);
         }
         // Create a blob of the value and save it as event.ics
         const blob = new Blob([value], { type: 'text/calendar' });
@@ -135,6 +135,10 @@ export default function Create(props: { baseURL: string }): JSX.Element {
               id="tz"
               className={inputStyle}
               onChange={(val) => {
+                const tz = val.target.value;
+                setDate(date.setZone(tz, { keepLocalTime: true }));
+              }}
+              onBlur={(val) => {
                 const tz = val.target.value;
                 setDate(date.setZone(tz, { keepLocalTime: true }));
               }}
