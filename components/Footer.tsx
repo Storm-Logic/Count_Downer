@@ -41,7 +41,7 @@ const Footer = (): JSX.Element => {
           .map((contributor: contributorType) => contributor.login);
         setContributors(contributorLogins);
       })
-      .catch((_error: string) => {
+      .catch(() => {
         toast.error(
           `There was an error fetching the contributors. Please try again later.`,
         );
@@ -61,12 +61,8 @@ const Footer = (): JSX.Element => {
               href={`https://github.com/${contributor}`}
               passHref
             >
-              <a>
-                @
-                {`${contributor}${
-                  index !== contributors.length - 1 ? ', ' : ''
-                }`}
-              </a>
+              @
+              {`${contributor}${index !== contributors.length - 1 ? ', ' : ''}`}
             </Link>
           );
         })}{' '}
