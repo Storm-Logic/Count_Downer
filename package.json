@@ -44,7 +44,7 @@
     "@types/unidecode": "^0.1.1",
     "@typescript-eslint/eslint-plugin": "^5.0.0",
     "@vercel/node": "^1.12.1",
-    "autoprefixer": "^10.3.7",
+    "autoprefixer": "^10.6.1",
     "dayjs": "^1.10.7",
     "eslint": "7.32.0",
     "eslint-config-next": "^14.1.4",
