@@ -17,7 +17,7 @@
     "get-random-values": "^1.2.2",
     "i18next": "^21.6.9",
     "ics": "^2.31.0",
-    "js-base64": "^3.7.2",
+    "js-base64": "^3.9.4",
     "lodash.sum": "^4.0.2",
     "luxon": "^2.1.1",
     "moment-timezone": "^0.5.33",
