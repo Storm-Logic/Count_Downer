@@ -1839,10 +1839,10 @@
     ts-node "8.9.1"
     typescript "4.3.4"
 
-"@vvo/tzdb@^6.32.0":
-  version "6.32.0"
-  resolved "https://registry.yarnpkg.com/@vvo/tzdb/-/tzdb-6.32.0.tgz#9ef15520e4bb29d7a25e7a92371f329571236ec2"
-  integrity sha512-f33fb8bu9Cu/CMYtL5MZKahcV/qOOPPfdOv/YAxndVl/wNmRur/fEWYk6RCYlt+L+322cNNBSUWT4c16oK2iFA==
+"@vvo/tzdb@^6.201.1":
+  version "6.201.1"
+  resolved "https://registry.yarnpkg.com/@vvo/tzdb/-/tzdb-6.201.1.tgz#cccfcb6a991a0d6c470f3c5bcab4f287621c8baa"
+  integrity sha512-ib7ymHHyiGD9N/WWGMX5951hmxaFnOP3W8l0ATUxaH0Y/NczPHWS4cQgJUd1S9zyjCq0od8WXxRHlnjlHNPdNg==
 
 abab@^2.0.3, abab@^2.0.5:
   version "2.0.5"
