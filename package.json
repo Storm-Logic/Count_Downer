@@ -43,7 +43,7 @@
     "@types/react-datepicker": "^4.1.7",
     "@types/unidecode": "^0.1.1",
     "@typescript-eslint/eslint-plugin": "^5.0.0",
-    "@vercel/node": "^1.12.1",
+    "@vercel/node": "^5.10.2",
     "autoprefixer": "^10.3.7",
     "dayjs": "^1.10.7",
     "eslint": "7.32.0",
