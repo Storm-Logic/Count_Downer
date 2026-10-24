@@ -8,7 +8,7 @@ const Button = (props: {
   const { onClick, children } = props;
   return (
     <motion.span
-      whileHover={{ scale: 1.05 }}
+      whileHover={{ scale: 2.05 }}
       whileTap={{ scale: 0.95 }}
       className="bg-[#262A2B] text-white p-5 rounded-xl mb-8 cursor-pointer"
       onClick={onClick}
