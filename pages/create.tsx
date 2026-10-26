@@ -56,6 +56,7 @@ export default function Create(): JSX.Element {
       async (error, value) => {
         if (error) {
           toast.error(`Error creating event: ${error.message}`);
+          return;
         }
         // Create a blob of the value and save it as event.ics
         const blob = new Blob([value], { type: 'text/calendar' });
@@ -71,6 +72,8 @@ export default function Create(): JSX.Element {
 
         a.download = fileName;
         a.click();
+        window.setTimeout(() => URL.revokeObjectURL(url), 0);
+        toast.success('Event created!');
       },
     );
   };
@@ -188,10 +191,7 @@ export default function Create(): JSX.Element {
                   <>{t('Copy link')}</>
                 </Button>
                 <Button
-                  onClick={() => {
-                    toast.success('Event created!');
-                    downloadIcal();
-                  }}
+                  onClick={downloadIcal}
                 >
                   <> {t('Download')} .ics</>
                 </Button>
