@@ -59,7 +59,7 @@ const EventName = (props: {
           className={
             'w-1/2 p-3 ml-0 font-thin transition duration-200 focus:shadow-md focus:outline-none ring-offset-2 border border-gray-400 rounded-lg focus:ring-2 focus:ring-gray-500 text-black dark:text-white bg-white dark:bg-[#262A2B]'
           }
-          defaultValue={dayjs(date).format('YYYY-MM-DDThh:mm')}
+          defaultValue={dayjs(date).format('YYYY-MM-DDTHH:mm')}
           onChange={(e) => {
             setDate(new Date(e.target.value));
           }}
