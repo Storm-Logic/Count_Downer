@@ -99,7 +99,7 @@ export default function Home(props: {
 
   useEffect(() => {
     if (query.name && query.date) {
-      setName(decodeURIComponent(query.name));
+      setName(query.name);
       setDate(new Date(parseInt(query.date) * 1000));
     }
   }, [query]);
@@ -112,7 +112,7 @@ export default function Home(props: {
 
   useEffect(() => {
     addQueryParam('date', (date.getTime() / 1000).toString());
-    addQueryParam('name', encodeURIComponent(eventName));
+    addQueryParam('name', eventName);
   }, [date, eventName]);
 
   return (
@@ -121,7 +121,7 @@ export default function Home(props: {
         <Menu />
         <Head
           titlePrefix={pageTitle}
-          name={props.name && decodeURIComponent(props.name)}
+          name={props.name}
           date={
             props.date &&
             dayjs(parseInt(props.date) * 1000).format('MM/DD/YYYY')
