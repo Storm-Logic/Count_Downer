@@ -121,9 +121,12 @@ const getFormattedDiffs = (
 ): string => {
   const diffs = getDiffParams(today, parsed, customParameters);
 
-  if (sum(diffs) > 0) {
+  if (parsed.isAfter(today)) {
     const reducedDiffs = reduceOverview(today, parsed, diffs, customParameters);
-    return formatDiffs(reducedDiffs, short, customParameters);
+    return (
+      formatDiffs(reducedDiffs, short, customParameters) ||
+      `0 ${plural(customParameters[0], 0)}`
+    );
   } else {
     return 'Expired';
   }

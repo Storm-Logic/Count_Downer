@@ -16,3 +16,11 @@ test('The formatting of dates in the future is correct', () => {
     '21 days 0 hours 8 minutes 39 seconds',
   );
 });
+
+test('Future countdowns show zero when a selected unit has not elapsed', () => {
+  const fromDate = dayjs('2026-01-01');
+  const toDate = fromDate.add(1, 'day');
+
+  expect(getFormattedDiffs(fromDate, toDate, false, ['year'])).toBe('0 years');
+  expect(getFormattedDiffs(fromDate, toDate, false, ['month'])).toBe('0 months');
+});
