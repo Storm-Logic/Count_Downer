@@ -40,7 +40,7 @@ export default function Create(): JSX.Element {
   const baseURL =
     typeof window !== 'undefined' &&
     `${window.location.protocol}//${window.location.host}`;
-  const eventURL = `${baseURL}/?date=${reducedDate}&name=${eventName}`;
+  const eventURL = `${baseURL}/?date=${reducedDate}&name=${encodeURIComponent(eventName)}`;
 
   const downloadIcal = async (): Promise<void> => {
     const createEvent = (await import('ics')).createEvent;
@@ -178,9 +178,7 @@ export default function Create(): JSX.Element {
                       return;
                     }
                     try {
-                      await navigator.clipboard.writeText(
-                        `${baseURL}/?date=${reducedDate}&name=${eventName}`,
-                      );
+                      await navigator.clipboard.writeText(eventURL);
                       toast.success('Copied to clipboard');
                     } catch (err: any) {
                       toast.error('Failed to copy!', err);
