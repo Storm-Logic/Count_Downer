@@ -16,7 +16,7 @@
     "framer-motion": "^4.1.17",
     "get-random-values": "^1.2.2",
     "i18next": "^21.6.9",
-    "ics": "^2.31.0",
+    "ics": "^3.12.1",
     "js-base64": "^3.7.2",
     "lodash.sum": "^4.0.2",
     "luxon": "^2.1.1",
