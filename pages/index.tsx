@@ -66,7 +66,9 @@ export default function Home(props: {
         setOffset(diff);
       }
     };
-    sync();
+    sync().catch(() => {
+      toast.error('Could not sync time; using your device clock.');
+    });
   }, []);
 
   useEffect(() => {
